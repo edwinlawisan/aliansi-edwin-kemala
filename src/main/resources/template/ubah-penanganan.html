@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Ubah Penanganan</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
+
+<body>
+<nav th:replace="fragments/fragment :: navbar"></nav>
+<br>
+<form th:action="@{/penanganan/ubah}" th:object="${penanganan}" method="POST">
+    <input type="hidden" id="idPasien" th:value="${pasien.id}" th:field="*{id}"/>
+    <h3>Ubah Penanganan</h3>
+    <h4> Anda hanya dapat mengubah Jenis dan Harga Penanganan</h4>
+
+    Jenis Penangananan: <br>
+    <input type="text" name="jenisPenanganan" th:field="*{jenisPenanganan}" />
+    <br>
+    Harga Penanaganan: <br>
+    <input type="text" name="harga" th:field="*{harga}" />
+    <br>
+    <button type="submit" class="btn btn-primary">Simpan</button>
+</form>
+</body>
+
+</html>
